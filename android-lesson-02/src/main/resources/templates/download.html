@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <!-- 스타일링을 위한 CSS 파일 링크 -->
+    <link rel="stylesheet" href="/css/style_download.css" />
+</head>
+
+<body>
+<!-- 업로드 페이지로 이동하는 링크 -->
+<a href="/upload">업로드 페이지로 </a>
+
+<!-- 페이지 제목 -->
+<h2> 파일 다운로드 페이지</h2>
+
+<!-- 파일 다운로드 방법에 대한 안내 메시지 -->
+<span>REST 요청을 보내 파일 목록을 불러오고, 다음 li에 다운로드 링크와 함께 삽입하십시오.</span>
+<span>파일 목록을 불러오는 예제에 대해서는 <a href="https://github.com/java-lesson-cbnu/android-lesson-01">이전 예제 레포지토리</a>를 참고하세요. </span>
+
+<!-- 파일 목록을 표시할 ul 요소 -->
+<ul id="file_list">
+</ul>
+
+<script type="application/javascript">
+    // 비동기 함수로서, 서버로부터 파일 목록을 가져와서 화면에 표시
+    (async () => {
+        // 파일 목록 요청
+        const response = await fetch('/api/v1/rest/aws/list');
+        const fileNames = await response.json();
+
+        // 파일 목록을 화면에 표시할 ul 요소 선택
+        const fileListContainer = document.getElementById("file_list");
+
+        // 각 파일에 대하여 화면에 표시
+        for (let fileName of fileNames) {
+            // li 요소 생성
+            let li = document.createElement("li");
+            // 파일 이름 텍스트 노드 생성 및 추가
+            let textNode = document.createTextNode(fileName + " ");
+            li.appendChild(textNode);
+
+            // 다운로드 링크 생성
+            let downloadLink = document.createElement("a");
+            downloadLink.href = `/api/v1/rest/aws/download?fileName=${encodeURIComponent(fileName)}`;
+            downloadLink.textContent = "Download";
+            li.appendChild(downloadLink);
+
+            // 생성된 li 요소를 ul 요소에 추가
+            fileListContainer.appendChild(li);
+        }
+    })()
+</script>
+</body>
+
+</html>

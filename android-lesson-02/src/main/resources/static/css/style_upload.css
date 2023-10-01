@@ -1,0 +1,76 @@
+body {
+    font-family: 'Georgia', serif;
+    background-color: #e0e5ec;
+    color: #2c3e50;
+    margin: 0;
+    padding: 30px;
+    line-height: 1.6;
+}
+
+h2 {
+    background-color: #3498db;
+    color: #ecf0f1;
+    padding: 15px 20px; /* 패딩 증가 */
+    margin: 30px 0; /* 마진 증가 */
+    text-align:center ;
+     border-radius :10px ; /* 둥근 테두리 증가 */
+}
+
+a {
+   color:#ecf0f1 ;
+   text-decoration:none ;
+   font-weight:normal ; /* 굵게 표시된 글씨를 일반으로 변경 */
+   padding :7px ; /* 패딩 증가 */
+   background-color:#34495e
+}
+
+a:hover {
+   text-decoration:none ; /* underline 제거 */
+}
+
+ul {
+   list-style-type:none ;
+   margin :30px 0 ; /* 마진 증가 */
+   padding-left :0 ;
+}
+
+li {
+     padding :15px 20px ;/* 패딩 크기 조정 */
+     border :1px solid #bdc3c7 ;
+     margin-bottom :10px ;/* 마진 크기 조정 */
+     background-color:#ffffff ;
+     position:relative
+}
+
+li a {
+      position:absolute ;
+      right :20px ;
+      top :50% ;
+      transform :translateY(-50%) ;
+
+form {
+       background-color:#ffffff;
+       padding :20px;
+       border-radius :10 px;
+       box-shadow:2 px 2 px 15 px rgba(52,73,94,.1);
+}
+
+input[type="file"], input[type="submit"] {
+        margin-top :15 px;
+}
+
+input[type="submit"] {
+         background-color:#2980b9;
+         color:#ffffff;
+         border:none;
+         padding:12 px25 px;/*패딩 크기 조정*/
+         border-radius:
+          cursor:pointer;
+          transition:.3 s all ease-out;/*효과 시간 조정*/
+ }
+
+input[type="submit"]:hover{background-color:#20668a;}/*색상 변경*/
+
+#message{margin-top:
+          color:#E74C3C;/*색상 변경*/
+          font-weight:bold;}
